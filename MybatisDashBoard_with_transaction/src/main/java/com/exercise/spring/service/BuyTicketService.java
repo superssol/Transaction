@@ -2,9 +2,11 @@ package com.exercise.spring.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.TransactionDefinition;
+//import org.springframework.transaction.PlatformTransactionManager;
+//import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionCallbackWithoutResult;
 import org.springframework.transaction.support.TransactionTemplate;
 
@@ -32,6 +34,7 @@ public class BuyTicketService implements IBuyTicketService {
 	
 	
 	@Override
+	@Transactional(propagation = Propagation.REQUIRES_NEW)
 	public int buy(String consumerId, int amount, String error) {
 		
 //		TransactionStatus status = transactionManager.getTransaction(definition);

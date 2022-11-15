@@ -7,14 +7,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.exercise.spring.service.IBuyTicketService;
+import com.exercise.spring.service.BuyAndLogService;
+//import com.exercise.spring.service.IBuyTicketService;
 
 
 @Controller
 public class MyController {
 	
 	@Autowired
-	private IBuyTicketService Bservice;
+	private BuyAndLogService BALservice;
 	
 	@RequestMapping("/")
 	public @ResponseBody String root() throws Exception {
@@ -35,7 +36,7 @@ public class MyController {
 			) 
 	{
 		
-		int nResult = Bservice.buy(consumerId, Integer.parseInt(amount), error);
+		int nResult = BALservice.buy(consumerId, Integer.parseInt(amount), error);
 		
 		model.addAttribute("consumerId", consumerId);
 		model.addAttribute("amount", amount);
