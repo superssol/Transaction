@@ -18,7 +18,7 @@ public class MyController {
 	
 	@RequestMapping("/")
 	public @ResponseBody String root() throws Exception {
-		return "Transaction Manager (2)";
+		return "Transaction template사용 (3)";
 	}
 	
 	@RequestMapping("/buy_ticket")
